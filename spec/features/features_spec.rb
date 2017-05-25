@@ -10,7 +10,7 @@ end
   feature 'See a hit point' do
     scenario 'After starting the battle, player 1 sees player 2 hit points' do
       sign_in_and_play
-      expect(page).to have_content('Geoff score: 5')
+      expect(page).to have_content('Geoff score: 15')
     end
   end
 
@@ -19,5 +19,14 @@ end
       sign_in_and_play
       click_button "Attack!"
       expect(page).to have_content('Sally attacked Geoff')
+    end
+  end
+
+  feature 'reduce HP by 10' do
+    scenario 'When Player 1 attacks then Player 2\'s hit points to be reduced by 10' do
+      sign_in_and_play
+      click_button "Attack!"
+      expect(page).not_to have_content 'Geoff score: 15'
+      expect(page).to have_content ('Geoff score: 5')
     end
   end

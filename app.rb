@@ -20,6 +20,7 @@ get '/play' do
 end
 
 get '/fight' do
+  $player1.attack($player2)
   erb :fight
 end
 
