@@ -11,17 +11,20 @@ get '/' do
 end
 
 post '/names' do
-  $player1 = Player.new(params[:player1])
-  $player2 = Player.new(params[:player2])
+  player1 = Player.new(params[:player1])
+  player2 = Player.new(params[:player2])
+  $game = Game.new(player1,player2)
   redirect to('/play')
 end
 
 get '/play' do
+  @game = $game
   erb :play
 end
 
 get '/fight' do
-  Game.new.attack($player2)
+  @game = $game
+  $game.attack($game.player2)
   erb :fight
 end
 

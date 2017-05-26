@@ -1,5 +1,5 @@
-<%= $player1.name %> vs <%= $player2.name %><br>
-<%= $player2.name %>  score: 15<br>
+<%= @game.player1.name %> vs <%= @game.player2.name %><br>
+<%= @game.player2.name %>  score: 15<br>
 <form action="/fight" >
 <button type="submit" value="Attack!"> Attack!</button>
 </form>
