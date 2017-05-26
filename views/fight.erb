@@ -1,5 +1,5 @@
-<%= @game.player1.name  %> attacked <%= @game.player2.name %><br>
-<%= @game.player2.name %> score: <%= @game.player2.hit_points  %> <br>
+<%= @game.opponent.name  %> attacked <%= @game.attacking_player.name %><br>
+<!--  <%= @game.attacking_player.name %> score: <%= @game.attacking_player.hit_points  %> <br> -->
 
 <form action="/play" >
 <button type="submit" value="Ok"> Ok</button>

@@ -26,6 +26,7 @@ subject(:game) {described_class.new(player1, player2)}
     it "allows players to switch turns" do
       game.switch_turn
       expect(game.attacking_player).to eq player2
+      expect(game.opponent).to eq player1
     end
   end
 end
