@@ -29,4 +29,14 @@ end
       expect(page).not_to have_content 'Geoff score: 15'
       expect(page).to have_content ('Geoff score: 5')
     end
+
+    feature "switch player" do
+      scenario "after player1 attacks player2, player2 is the attacker" do
+        sign_in_and_play
+        click_button "Attack!"
+        click_button "Ok"
+        expect(page).not_to have_content 'Sally\'s turn'
+        expect(page).to have_content ('Geoff\'s turn')
+    end
   end
+end

@@ -24,7 +24,9 @@ end
 
 get '/fight' do
   @game = $game
-  $game.attack($game.player2)
+  @game.attack(@game.player2)
+  @game.switch_turn
+
   erb :fight
 end
 
